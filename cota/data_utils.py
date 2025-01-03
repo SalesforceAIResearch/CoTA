@@ -5,7 +5,7 @@ import json
 import PIL
 from PIL import Image
 import numpy as np
-from mma.config import *
+from taco.config import *
 
 def reformat_text(text):
     pattern = r'#\s*STEP\s*\d?\s*#\:?' # to match one of these: `# STEP 1 #:`, `# STEP #:`, `#STEP 1#:`, `#STEP#:`, or `#STEP#`
@@ -23,7 +23,6 @@ def convert_openai_data_to_llava_format(example, id, metadata, image_base_path):
     
     # try:
     all_msgs_path = example['all_messages']
-    # if os.path.exists(all_msgs_path):
     all_msgs = pickle.load(open(all_msgs_path, 'rb'))
     msgs = all_msgs['user_agent']
     convos = []

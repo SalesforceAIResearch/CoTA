@@ -1,7 +1,7 @@
 import os 
 import argparse 
-from mma.data_utils import *
-from mma.config import *
+from cota.data_utils import *
+from cota.config import *
 from tqdm import trange, tqdm
 
 def get_args():

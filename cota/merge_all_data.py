@@ -3,8 +3,8 @@ import json
 import argparse
 import pandas as pd
 import numpy as np
-from mma.config import *
-from mma.data_utils import convert_mantis_example_into_llava_format, save_data_to_json
+from cota.config import *
+from cota.data_utils import convert_mantis_example_into_llava_format, save_data_to_json
 
 def get_args():
     parser = argparse.ArgumentParser()

@@ -4,8 +4,8 @@ import argparse
 from tqdm import trange, tqdm
 import pandas as pd
 from datasets import load_dataset
-from mma.data_utils import *
-from mma.config import *
+from cota.data_utils import *
+from taco.config import *
 
 simple_task_goal = """[BEGIN OF GOAL] You are a helpful assistant, and your goal is to solve the # USER REQUEST #. You can either rely on your own capabilities or perform actions with external tools to help you. You can use these actions: OCR, LocalizeObjects, GetObjects, EstimateRegionDepth, EstimateObjectDepth, Crop, ZoomIn, QueryLanguageModel, GetImageToImagesSimilarity, GetImageToTextsSimilarity, GetTextToImagesSimilarity, DetectFaces, QueryKnowledgeBase, Calculate, SolveMathEquation, Terminate. [END OF GOAL]"""
 

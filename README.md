@@ -32,32 +32,20 @@ cd cota
 pip install -r requirements.txt
 ```
 
-### Data generation and processing
-Run the script 
-```
-generate_mm_trajs.sh $subset
-```
-where ```$subset``` is a string representing a subset of the Cauldron dataset, or ```mantis-$subset``` for Mantis-Instruct.
+### Model-based CoTA generation 
+- Step 1: Modify the environment and code paths in the script ```scripts/generate_mm_trajs.sh```
+- Step 2: Run the script ```generate_mm_trajs.sh $subset```, where ```$subset``` is a string representing a subset of the Cauldron dataset, or ```mantis-$subset``` for Mantis-Instruct.
 For example, for Cauldron: ```generate_mm_trajs.sh ai2d```; for Mantis: ```generate_mm_trajs.sh mantis-contrastive_caption```.
 
-#### Generation only
-Run the command below:
-```
-python -m cota.run_multimodal_agent --execute --max-reply 10 --exp-id $exp_id --model $model  --dataset $dataset --prompt-format cota
-```
+### Programmatic CoTA generation 
+- Generate CoTA for single-image examples:
+```python cota/gen_tool_single.py```
 
-#### Processing only
-Step 1. Verify final answers
-```
-cd VLMEvalKit
-python run_eval_on_preds.py --model gpt4o --data MMVet --result-file "/export/agentstudio-family/zixian/mma/prediction/${model}/${dataset}/${exp_id}-json-max-reply-10-seed-42.jsonl" 
-```
-Step 2. Convert positive examples into Mantis and/or LLaVA training data format and negative examples into Direct answer format with groundtruth answers. 
-```
-python -m cota.preprocess_train_data --model $model --exp-id "${exp_id}-json-max-reply-10-seed-42" --dataset $dataset --save-llava-format
-```
+- For multi-image examples:
+```python cota/gen_tool_multi.py```
 
-### Notice
+
+### License
 The CoTA datasets are licensed under the noncommerical license [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Users need to make their own assessment regarding any obligations or responsibilities under the corresponding licenses or terms and conditions pertaining to the original datasets and data. This release is for research purposes only in support of an academic paper.
 
 ### Citation
