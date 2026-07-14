@@ -8,7 +8,7 @@ from IPython import get_ipython
 try:
     import chromadb
 except ImportError as e:
-    raise ImportError(f"{e}. You can try `pip install pyautogen[retrievechat]`, or install `chromadb` manually.")
+    raise ImportError(f"{e}. You can try `pip install ag2[retrievechat]`, or install `chromadb` manually.")
 from autogen.agentchat import UserProxyAgent
 from autogen.agentchat.agent import Agent
 from autogen.agentchat.contrib.vectordb.base import Document, QueryResults, VectorDB, VectorDBFactory
